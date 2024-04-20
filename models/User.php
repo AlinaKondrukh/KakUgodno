@@ -52,6 +52,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'id' => 'ID',
             'login' => 'Логин',
             'password' => 'Пароль',
+            'password_confirmation' => 'Повторите пароль',
             'email' => 'Email',
             'phone' => 'Номер телефона',
             'fio' => 'ФИО',
