@@ -35,7 +35,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['login', 'password', 'email', 'phone', 'fio'], 'required', 'message' => 'Поле не заполнено'],
+            [['login', 'password', 'email', 'phone', 'fio', 'password_confirmation' ], 'required', 'message' => 'Поле не заполнено'],
             [['email'], 'email', 'message' => 'Некорректно введен email'],
             [['phone'], 'string', 'max' => 11, 'min' => 11, 'tooShort' => 'Слишком короткий номер', 'tooLong' => 'Слишком длинный номер'],
             [['role_id'], 'integer'],
