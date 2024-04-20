@@ -18,6 +18,15 @@ $this->title = 'Правонарушений.Нет';
             font-weight: bold;
             font-size: 4em;
         }
+        .h2 {
+            text-align: center;
+            text-shadow: 2px 2px 0 black;
+            color: #728099;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-size: 3em;
+        }
         .textic {
             padding: 20px;
             margin: 20px;
@@ -81,7 +90,7 @@ $this->title = 'Правонарушений.Нет';
 
 
     <hr class="featurette-divider">
-
+<h2 class="h2">Преимущества</h2>
     <div class="row featurette">
       <div class="col-md-7">
         <p class="lead">Мы отслеживаем, в каких районах чаще всего происходит правонарушения и передаем сведения в ГИБДД.</p>
