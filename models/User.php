@@ -34,6 +34,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
+            [['login', 'password', 'email', 'phone', 'fio'], 'required', 'message' => 'Поле не заполнено'],
+            [['email'], 'email', 'message' => 'Некорректно введен email'],
+            [['phone'], 'string', 'max' => 11, 'min' => 11, 'tooShort' => 'Слишком короткий номер', 'tooLong' => 'Слишком длинный номер'],
             [['role_id'], 'integer'],
             [['login', 'password', 'email', 'phone', 'fio'], 'string', 'max' => 255],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
@@ -47,11 +50,12 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
-            'login' => 'Login',
-            'password' => 'Password',
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'password_confirmation' => 'Повторите пароль',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'fio' => 'Fio',
+            'phone' => 'Номер телефона',
+            'fio' => 'ФИО',
             'role_id' => 'Role ID',
         ];
     }
