@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use SebastianBergmann\Type\NullType;
 use Yii;
 
 /**
@@ -147,5 +148,17 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             return $user;
         }
         return null;
+    }
+    public function __toString()
+    {
+        return $this->login;
+    }
+    public static function getInstance() : User|Null
+    {
+        return Yii::$app->user->identity;
+    }
+    public function isAdmin()
+    {
+        return $this->role_id == Role::ADMIN_ID;
     }
 }
