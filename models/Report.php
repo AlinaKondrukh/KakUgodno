@@ -32,6 +32,7 @@ class Report extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['description', 'number'], 'required', 'message' => 'Поле не заполнено'],
             [['description'], 'string'],
             [['user_id', 'status_id'], 'integer'],
             [['number'], 'string', 'max' => 127],
@@ -47,10 +48,12 @@ class Report extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
-            'description' => 'Description',
-            'user_id' => 'User ID',
-            'status_id' => 'Status ID',
+            'number' => 'Номер',
+            'description' => 'Нарушение',
+            'user' => 'Пользователь',
+            'status' => 'Статус',
+            'user_id' => 'Пользователь',
+            'status_id' => 'Статус',
         ];
     }
 

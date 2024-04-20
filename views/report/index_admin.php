@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var app\models\ReportSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Мои заявления';
+$this->title = 'Заявления';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="report-index">
@@ -27,9 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+            'user',
             'number',
             'description:ntext',
             'status',
+            [
+                'template' => '{update}',
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, Report $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                 }
+            ],
         ],
     ]); ?>
 

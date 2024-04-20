@@ -14,6 +14,13 @@ use Yii;
  */
 class Status extends \yii\db\ActiveRecord
 {
+    const NEW_ID = 1;
+    const PRINYAT_ID = 2;
+    const OTKLONEN_ID = 3;
+    public function __toString()
+    {
+        return $this->status;
+    }
     /**
      * {@inheritdoc}
      */
